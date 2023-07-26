@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="UTF -8">
+    <title>Tetraedro en HTML</title>
+  </head>
+  <body>
+    <script>
+    var lado,area,volumen,presimetro;
+      var lado = parseFloat(prompt("Ingrese la longitud de un lado del tetraedro: ")); 
+      var area = (lado * lado) * Math.sqrt(3);// formula del area 
+      var perimetro = 4 * lado; // formula del perimetro
+      var volumen = (lado * lado * lado) / (6 * Math.sqrt(2));//formula del volumen
+
+      document.write("<h1>Resultados</h1>");
+      document.write("<p>El área del tetraedro es: " + area.toFixed(2) + "</p>");
+      document.write("<p>El perímetro del tetraedro es: " + perimetro.toFixed(2) + "</p>");
+      document.write("<p>El volumen del tetraedro es: " + volumen.toFixed(2) + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+    </script>
+  </body>
+</html>

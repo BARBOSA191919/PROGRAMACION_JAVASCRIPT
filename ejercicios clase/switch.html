@@ -1,0 +1,49 @@
+<html>
+
+<head>
+
+<script type ="text/javascript">
+    function suma ()
+    {
+        var resulta;
+        resulta = n1+n2;
+        document.write("El resultado es:", resulta);
+    }
+    function resta()
+    {
+        var resulta;
+        resulta = n1-n2;
+        document,write("El resultado es:", resulta);
+    }
+    function multiplicar()
+    {
+        var multiplicar;
+        resulta = n1*n2;
+        document.write("El resultado es:", resulta);
+    }
+    
+    var dividir;
+    {
+        resulta = n1/n2;
+        document.write("El resultado es:", resulta);
+    }
+    
+
+    n1 = parseInt(prompt("digite numero"));
+    n2 = parseInt(prompt("digite numero"));
+    n = parseInt(prompt("operaciones ?: \n\n1.suma.\n2.resta.\n3.multiplica.\n4.divide \n5. salir " ));
+    switch(n)
+    {
+
+   case 1 : suma();break;
+   case 2 : resta();break;
+   case 3 : multiplicar();break;
+   case 4 : dividir();break;
+   default:
+    alert("erroneo")
+    }
+</script>
+</head>
+<body>
+</body>
+</html>

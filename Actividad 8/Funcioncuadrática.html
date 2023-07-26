@@ -1,0 +1,173 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <table border="6">
+        <tr>
+            <td>
+                <canvas id="micanvas" width="1200px" height="470px">Tu navegador no soporta canvas.</canvas>
+            </td>
+        </tr>
+    </table>
+
+    <script language="javascript">
+        var m, b, x1, y1, x2, y2, l, d, a, c;
+
+        var c = document.getElementById("micanvas");
+        var cxn = c.getContext("2d");
+        var cont = 0;
+
+        function dcorde() {
+            for (l = 50; l < 1150; l += 20) {
+                cxn.moveTo(l, 230);
+                cxn.lineTo(l, 240);
+            }
+
+            var cont = -145;
+            for (l = 40; l < 1150; l += 20) {
+                cont += 5;
+                cxn.font = "7pt Calibri";
+                cxn.lineWidth = 0.9;
+                cxn.strokeStyle = "red";
+                cxn.strokeText(cont, l, 250);
+            }
+
+            for (l = 30; l < 430; l += 20) {
+                cxn.moveTo(606, l);
+                cxn.lineTo(612, l);
+            }
+
+            cont = 55;
+            for (l = 30; l < 430; l += 20) {
+                cxn.font = "7pt Calibri";
+                cxn.lineWidth = 0.9;
+                cxn.strokeStyle = "red";
+                cxn.strokeText(cont, 580, l);
+                cont -= 5;
+            }
+
+            cxn.strokeStyle = "black";
+            cxn.stroke();
+        }
+
+        function dlinea() {
+    var x1 = parseFloat(ecua.x1.value);
+    var y1 = parseFloat(ecua.y1.value);
+    var x2 = parseFloat(ecua.x2.value);
+    var y2 = parseFloat(ecua.y2.value);
+    var x3 = parseFloat(ecua.x3.value);
+    var y3 = parseFloat(ecua.y3.value);
+
+    var cxn = c.getContext("2d");
+    cxn.clearRect(0, 0, c.width, c.height);
+
+    // Cálculo de los parámetros de la curva cuadrática
+    var a1 = (y2 - y1) / Math.pow(x2 - x1, 2);
+    var b1 = -2 * a1 * x1;
+    var c1 = a1 * Math.pow(x1, 2) + y1;
+
+    var a2 = (y3 - y2) / Math.pow(x3 - x2, 2);
+    var b2 = -2 * a2 * x2;
+    var c2 = a2 * Math.pow(x2, 2) + y2;
+
+    var px, py;
+    var step = (x3 - x1) / 100;
+    cxn.beginPath();
+    cxn.moveTo(610 + Math.abs(x1 * 4), 235 - Math.abs(y1 * 4));
+    for (var x = x1 + step; x <= x3; x += step) {
+        var y = a1 * Math.pow(x, 2) + b1 * x + c1;
+        px = 610 + Math.abs(x * 4);
+        py = 235 - Math.abs(y * 4);
+        cxn.bezierCurveTo(
+            2 * px - (610 + Math.abs(x2 * 4)),
+            2 * py - (235 - Math.abs(y2 * 4)),
+            2 * px - (610 + Math.abs(x2 * 4)),
+            2 * py - (235 - Math.abs(y2 * 4)),
+            px,
+            py
+        );
+    }
+    cxn.lineWidth = 2;
+    cxn.strokeStyle = "blue";
+    cxn.stroke();
+
+        cxn.font = "10pt Calibri";
+        cxn.lineWidth = 1;
+        cxn.strokeStyle = "blue";
+        cxn.strokeText("a:", 20, 360);
+        cxn.strokeStyle = "red";
+        cxn.strokeText(a, 50, 360);
+        cxn.strokeStyle = "blue";
+        cxn.strokeText("b:", 20, 380);
+        cxn.strokeStyle = "red";
+        cxn.strokeText(b, 50, 380);
+        cxn.strokeStyle = "blue";
+        cxn.strokeText("c:", 20, 400);
+        cxn.strokeStyle = "red";
+        cxn.strokeText(c, 50, 400);
+        cxn.strokeStyle = "green";
+        cxn.strokeText("Y = ", 20, 420);
+        cxn.strokeText(a + "X^2" + " + " + b + "X" + " + " + c, 50, 420);
+        cxn.strokeStyle = "blue";
+        cxn.strokeText("Distancia:", 20, 440);
+        cxn.strokeStyle = "red";
+        cxn.strokeText(d, 80, 440);
+        cxn.strokeStyle = "blue";
+        cxn.strokeText("Punto Medio:", 20, 460);
+        cxn.strokeStyle = "red";
+        cxn.strokeText("(" + xm + "," + ym + ")", 90, 460);
+        cxn.stroke();
+    }
+
+</script>
+
+<form name="ecua" id="ecua" action="" method="post">
+    <table border="6" class="tdatos">
+        <caption><p>ECUACION GENERAL DE LA RECTA DANDO 2 PUNTOS CARTESIANOS</p></caption>
+        <tr>
+            <td>Punto No.1</td>
+            <td>X1</td>
+            <td><input type="number" min="-140" max="135" name="x1" required></td>
+            <td>Y1</td>
+            <td><input type="number" min="-50" max="50" name="y1" required></td>
+            <td rowspan="3"><a href="https://www.usco.edu.co/"><img src="usco logo.png" alt="USCO"/></a> </td>
+        </tr>
+
+        <tr>
+            <td>Punto No.2</td>
+            <td>X2</td>
+            <td><input type="number" min="-140" max="135" name="x2" required></td>
+            <td>Y2</td>
+            <td><input type="number" min="-50" max="50" name="y2" required></td>
+        </tr>
+        <tr>
+            <tr>
+                <td>Punto No.3</td>
+                <td>X3</td>
+                <td><input type="number" min="-140" max="135" name="x3" required></td>
+                <td>Y3</td>
+                <td><input type="number" min="-50" max="50" name="y3" required></td>
+            </tr>
+            <tr>
+            <td colspan="5">
+                <input type="button" name="calcula" value="Resolver Ecuacion" onclick="dlinea();">
+                <input type="button" name="dibujacord" value="Dibujar Coordenadas" onclick="dcorde();">
+                <h2> <center>Cuadrática (y = ax^2 + bx + c)</h2>
+                        
+            </select>
+                
+        </td>
+
+    </tr>
+</table>
+
+</form>
+
+</body>
+</html> 

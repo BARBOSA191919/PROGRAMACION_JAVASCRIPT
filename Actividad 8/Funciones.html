@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gráfica de ecuaciones</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../Actividad 8/style (1).css">
+</head>
+<body>
+  <div id="generar tabla">
+    <h1> Líneal </h1>
+
+    <h1>Gráfica de ecuaciones</h1>
+    <form id="dataForm">
+      <tr>
+        <td rowspan="3"> <center><a href="https://www.usco.edu.co/"><img src="usco logo.png" alt="USCO" width="80" height="80"/></center></a> </td>
+    </tr>
+      <!-- Etiqueta para el campo "xValues" -->
+      <label for="xValues">Valores de X (separados por comas):</label><br>
+      <!-- Aviso para que el usuario sepa que poner en el campo "xValues" -->
+      <label for="xValues">debes poner los puntos los cuales desea imprimir en la tabla en x</label><br>
+      <!-- Campo para que el usuario ingrese valores de x -->
+      <input type="text" id="xValues"><br>
+      <!-- Etiqueta para el campo "yValues" -->
+      <label for="yValues">Valores de Y (separados por comas):</label><br>
+      <!-- Aviso para que el usuario sepa que poner en el campo "yValues" -->
+      <label for="xValues">debes poner los puntos los cuales desea imprimir en la tabla en Y</label><br>
+      <!-- Campo para que el usuario ingrese valores de y -->
+      <input type="text" id="yValues"><br><br>
+      <!-- Botón para generar la gráfica -->
+      <input type="submit" value="Generar gráfica">     <!-- Botón para borrar los campos y la gráfica existente -->
+      <input type="button" onclick="borrar()" value="borrar">
+    </form>
+    <!-- Contenedor del gráfico -->
+    <canvas id="chart"></canvas>
+    <!-- Contenedor del tipo de ecuación -->
+    <p id="equationType"></p>
+  </div>
+  <script>
+    // Obtención de los datos del formulario cuando se envía
+    document.getElementById("dataForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      // Obtención de los valores de x e y ingresados por el usuario
+      const xValues = document.getElementById("xValues").value.split(",").map(Number);
+      const yValues = document.getElementById("yValues").value.split(",").map(Number);
+      // Conversión de los valores de x e y en un formato compatible con el gráfico
+      const data = xValues.map((x, i) => ({ x: x, y: yValues[i] }));
+      // Creación del gráfico
+      const chart = new Chart(document.getElementById("chart"), {
+        type: "line",
+        data: {
+          datasets: [{
+            label: "Datos",
+            borderColor: "red",
+            data: data
+          }]
+        },
+        options: {
+          elements: {
+            line: {
+              tension: 0.5
+            }
+          },
+          // Otras opciones de configuración del gráfico
+          scales: {
+            x: {
+              type: "linear",
+              position: "bottom"
+
+            }
+          }
+        }
+      });
+      // Determinación del tipo de ecuación (lineal o cuadrática)
+      const equationType = isLinear(xValues, yValues) ? "Lineal" : "";
+      document.getElementById("equationType").textContent = "Tipo de ecuación: " + equationType;
+    });
+//La función toma dos arreglos de números como entrada, xValues y yValues, que representan las coordenadas x e y de los puntos de datos.
+    function isLinear(xValues, yValues) {
+      //Se inicializa la variable n con la longitud del arreglo xValues.
+      const n = xValues.length;
+      //Se calculan la suma de los valores x y y, respectivamente, mediante la función reduce().
+      const xSum = xValues.reduce((a, b) => a + b);
+      const ySum = yValues.reduce((a, b) => a + b);
+      //Se calculan la suma de los valores x y y, respectivamente, mediante la función reduce()
+      const xySum = xValues.reduce((sum, x, i) => sum + x * yValues[i], 0);
+      //Se calcula la suma de los productos de los valores x y y utilizando la función reduce(). Para cada elemento del arreglo xValues, se multiplica el elemento correspondiente de yValues y se suma a sum.
+      const xSquaredSum = xValues.reduce((sum, x) => sum + x * x, 0);
+      //Se calcula la suma de los cuadrados de los valores x utilizando la función reduce(). Para cada elemento del arreglo xValues, se eleva al cuadrado y se suma a sum.
+      const slope = (n * xySum - xSum * ySum) / (n * xSquaredSum - xSum * xSum);
+      const intercept = (ySum - slope * xSum) / n;
+      //Se calculan los coeficientes de la ecuación lineal de regresión, la pendiente (slope) y el intercepto (intercept), utilizando las fórmulas correspondientes.
+      let ssr = 0;
+      let sst = 0;
+      for (let i = 0; i < n; i++) {
+        const fittedY = slope * xValues[i] + intercept;
+        ssr += (yValues[i] - fittedY) ** 2;
+        sst += (yValues[i] - ySum / n) ** 2;
+      }
+      //Se calculan las sumas de los cuadrados de los residuos (ssr) y de los totales (sst) utilizando un bucle for y las fórmulas correspondientes. Para cada punto de datos, se calcula la coordenada y correspondiente de la línea de regresión, se resta del valor y real y se eleva al cuadrado. sst se calcula utilizando la media de los valores y.
+      const rSquared = 1 - ssr / sst;
+      //Se calcula el coeficiente de determinación (rSquared) utilizando la fórmula correspondiente.
+      return rSquared > 0.9;
+    }
+    function borrar() {
+      // Establecer los campos de entrada en una cadena vacía
+      document.getElementById("xValues").value = "";
+      document.getElementById("yValues").value = "";
+      // Eliminar cualquier gráfico existente en el canvas
+      const chartElement = document.getElementById("chart");
+      if (chartElement) {
+        chartElement.getContext("2d").clearRect(0, 0, chartElement.width, chartElement.height);
+        location.reload();
+      }
+    }
+  </script>
+</body>
+</html>

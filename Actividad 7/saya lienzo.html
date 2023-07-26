@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>canvas</title>
+    </head>
+    <body>
+        <canvas id="saya_lienzo" width="500" height="650" style="border:2px solid red">
+        
+        </canvas>
+
+        <script>
+            var c = document.getElementById("saya_lienzo");
+            var ctx = c.getContext("2d");
+            
+            var x1 = prompt("x1:");
+            var y1 = prompt("y1:");
+            var radio = prompt("radio inicial:");
+            var radioMinimo = 5;
+            
+            while(radio >= radioMinimo) {
+                ctx.beginPath();
+                ctx.arc(x1, y1, radio, 0, 2*Math.PI);
+                ctx.stroke();
+                radio -= 5; // reducir el radio en 5 en cada iteración
+            }
+            document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+        </script>
+    </body>
+</html>

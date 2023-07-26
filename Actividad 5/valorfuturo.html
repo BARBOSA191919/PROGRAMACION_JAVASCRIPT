@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <!--Este código calcula el valor futuro de un ahorro 
+    dado un valor actual, una tasa de interés mensual y un período de tiempo-->
+<head>
+</head>
+<body>
+<script type="text/javascript">
+        
+            // Definición de la función VALOR_FUTURO que toma tres argumentos:
+            // VA - Valor Actual
+            // interes - Tasa de interés mensual
+            // tiempo - Período de tiempo 
+            function VALOR_FUTURO(VA,interes,tiempo) {
+                var VF = VA * (Math.pow((1+interes/100),tiempo)); // Calcula el valor futuro usando la fórmula VF = VA * (1+interes)^tiempo
+                document.write("Tiene que ahorrar = ", VF); // Muestra el resultado en la página web
+            }
+            
+            // Declaración de variables VA, interes, tiempo
+            var VA, interes, tiempo;
+            
+            // Solicita al usuario el valor actual, la tasa de interés y el período de tiempo y almacena los valores ingresados en las variables correspondientes
+            VA = parseInt(prompt("Valor Actual:"));
+            interes = parseInt(prompt("Interes: "));
+            tiempo = parseInt(prompt("Tiempo:"));
+            
+            // Llama a la función VALOR_FUTURO con los valores ingresados por el usuario como argumentos
+            VALOR_FUTURO(VA,interes,tiempo);
+            document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+        </script>
+    </body>    
+</html>

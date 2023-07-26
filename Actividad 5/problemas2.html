@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <!--Samuel es padre de dos adolescentes las cuales tienen planeado 
+    ir a una Universidad privada: A la menor le faltan 5 años para iniciar 
+    su carrera y a la mayor solo le faltan 3 años. Pensando en el costo 
+    de las inscripciones y demás gastos en que incurrirá al momento de
+    su ingreso a la universidad, para la hija mayor necesitará 3500000 
+    y para la hija menor requerirá 4500000 para cubrir los gastos de inscripción.
+    Entonces Samuel decide abrir dos cuentas de ahorro, una para cada una de sus
+    hijas en el banco de la región, el que le ofrece una tasa de interés del 13% nominal
+    capitalizable bimestralmente. Las cuentas son aperturadas con el mismo monto inicial
+    para cada una de ellas, el cual es por la cantidad de 2000000 ¿cuánto recibirá
+    cada una de las cuentas al retirar el monto total ahorrado
+    al iniciar los estudiantes cada una de las hijas?-->
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+        const montoInicial = 2000000; // en pesos
+        const tasaInteresNominal = 13; // en porcentaje
+        const capitalizacion = 6; // bimestralmente
+        const gastoMayor = 3500000; // en pesos
+        const gastoMenor = 4500000; // en pesos
+        const tiempoMayor = 3; // en años
+        const tiempoMenor = 5; // en años
+
+        // Se convierte la tasa nominal a efectiva
+        const tasaInteresEfectiva = (1 + tasaInteresNominal / (100 * capitalizacion)) ** capitalizacion - 1;
+
+        // Se calcula el valor futuro de la cuenta de la hija mayor
+        const valorFuturoMayor = montoInicial * ((1 + tasaInteresEfectiva) ** (capitalizacion * tiempoMayor));
+
+        // Se calcula el valor futuro de la cuenta de la hija menor
+        const valorFuturoMenor = montoInicial * ((1 + tasaInteresEfectiva) ** (capitalizacion * tiempoMenor));
+
+        // Se calcula la cantidad que recibirá cada hija al retirar el monto total ahorrado
+        const cantidadHijaMayor = valorFuturoMayor - gastoMayor;
+        const cantidadHijaMenor = valorFuturoMenor - gastoMenor;
+
+        alert(`La hija mayor recibirá ${cantidadHijaMayor.toFixed(2)} pesos al retirar el monto total ahorrado.`);
+        alert(`La hija menor recibirá ${cantidadHijaMenor.toFixed(2)} pesos al retirar el monto total ahorrado.`);
+        document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+        </script>
+    </body>    
+</html>

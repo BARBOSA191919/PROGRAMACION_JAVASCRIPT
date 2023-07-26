@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF -8">
+    <title>Área, perímetro y volumen de un cubo</title>
+  </head>
+  <body>
+    <script>
+      // Pedir al usuario que ingrese el valor del lado del cubo
+      var lado = parseFloat(prompt("Ingrese el valor del lado del cubo:"));
+
+      // Calcular el perímetro del cubo
+      var perimetro = 12 * lado;
+
+      // Calcular el área total del cubo
+      var areaTotal = 6 * Math.pow(lado, 2);
+
+      // Calcular el volumen del cubo
+      var volumen = Math.pow(lado, 3);
+
+      // Mostrar los resultados en la página
+      document.write("<h2>Resultados</h2>");
+      document.write("<p>El perímetro del cubo es: " + perimetro + "</p>");
+      document.write("<p>El área total del cubo es: " + areaTotal + "</p>");
+      document.write("<p>El volumen del cubo es: " + volumen + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+    </script>
+  </body>
+</html>

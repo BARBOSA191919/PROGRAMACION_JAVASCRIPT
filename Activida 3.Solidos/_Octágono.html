@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cálculo de área y perímetro de un octágono</title>
+</head>
+<body>
+
+	<script>
+		// Pedir al usuario el lado del octágono
+		var lado = prompt("Ingrese el valor del lado del octágono:");
+
+		// Convertir el valor de entrada a un número decimal
+		lado = parseFloat(lado);
+
+		// Calcular el área del octágono
+		var apotema = lado * Math.sqrt(2) / 2;
+		var area = 8 * lado * apotema / 2;
+
+		// Calcular el perímetro del octágono
+		var perimetro = 8 * lado;
+
+		// Mostrar el resultado en la página
+		document.write("<h2>Resultado:</h2>");
+		document.write("Lado del octágono: " + lado + "<br>");
+		document.write("Área del octágono: " + area.toFixed(2) + "<br>");
+		document.write("Perímetro del octágono: " + perimetro.toFixed(2));
+		document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+	</script>
+
+</body>
+</html>

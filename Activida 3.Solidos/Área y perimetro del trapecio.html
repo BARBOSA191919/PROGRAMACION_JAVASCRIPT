@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Área y perímetro de un trapecio</title>
+  </head>
+  <body>
+    <script>
+      var baseMayor,baseMenor,altura,perimetro,area;
+      // Pedir al usuario que ingrese los valores de base mayor, base menor y altura del trapecio
+      var baseMayor = parseFloat(prompt("Ingrese la base mayor del trapecio:"));
+      var baseMenor = parseFloat(prompt("Ingrese la base menor del trapecio:"));
+      var altura = parseFloat(prompt("Ingrese la altura del trapecio:"));
+
+      // Calcular el perímetro del trapecio
+      var perimetro = baseMayor + baseMenor + 2 * Math.sqrt(Math.pow((baseMayor - baseMenor) / 2, 2) + Math.pow(altura, 2));
+
+      // Calcular el área del trapecio
+      var area = ((baseMayor + baseMenor) * altura) / 2;
+
+      // Mostrar los resultados en la página
+      document.write("<h2>Resultados</h2>");
+      document.write("<p>El perímetro del trapecio es: " + perimetro + "</p>");
+      document.write("<p>El área del trapecio es: " + area + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+    </script>
+  </body>
+</html>

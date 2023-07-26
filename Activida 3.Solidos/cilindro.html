@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF -8">
+    <title>Área, perímetro y volumen de un cilindro</title>
+  </head>
+  <body>
+    <script>
+      // Pedir al usuario que ingrese los valores de radio y altura del cilindro
+      var radio = parseFloat(prompt("Ingrese el valor del radio del cilindro:"));
+      var altura = parseFloat(prompt("Ingrese el valor de la altura del cilindro:"));
+
+      // Calcular el perímetro de la base del cilindro
+      var perimetroBase = 2 * Math.PI * radio;
+
+      // Calcular el área de la base del cilindro
+      var areaBase = Math.PI * Math.pow(radio, 2);
+
+      // Calcular el área lateral del cilindro
+      var areaLateral = perimetroBase * altura;
+
+      // Calcular el área total del cilindro
+      var areaTotal = 2 * areaBase + areaLateral;
+
+      // Calcular el volumen del cilindro
+      var volumen = areaBase * altura;
+
+      // Mostrar los resultados en la página
+      document.write("<h2>Resultados</h2>");
+      document.write("<p>El perímetro de la base del cilindro es: " + perimetroBase + "</p>");
+      document.write("<p>El área de la base del cilindro es: " + areaBase + "</p>");
+      document.write("<p>El área lateral del cilindro es: " + areaLateral + "</p>");
+      document.write("<p>El área total del cilindro es: " + areaTotal + "</p>");
+      document.write("<p>El volumen del cilindro es: " + volumen + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+    </script>
+  </body>
+</html>

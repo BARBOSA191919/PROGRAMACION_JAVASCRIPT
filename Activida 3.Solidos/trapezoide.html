@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Trapecio en HTML</title>
+  </head>
+  <body>
+    <script>
+      // preguntamos la basemayor y base menor al usuario y la altura
+      var baseMayor = parseFloat(prompt("Ingrese la longitud de la base mayor del trapezoide: "));
+      var baseMenor = parseFloat(prompt("Ingrese la longitud de la base menor del trapezoide: "));
+      var altura = parseFloat(prompt("Ingrese la altura del trapezoide: "));
+      var area = ((baseMayor + baseMenor) / 2) * altura; // formula para el area
+      //formula para el perimetro
+      var perimetro = baseMayor + baseMenor + (2 * Math.sqrt
+      (Math.pow((baseMayor - baseMenor) / 2, 2) + Math.pow(altura, 2)));
+
+      document.write("<h1>Resultados</h1>");
+      document.write("<p>El área del trapezoide es: " + area.toFixed(2) + "</p>");
+      document.write("<p>El perímetro del trapezoide es: " + perimetro.toFixed(2) + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+    </script>
+  </body>
+</html>

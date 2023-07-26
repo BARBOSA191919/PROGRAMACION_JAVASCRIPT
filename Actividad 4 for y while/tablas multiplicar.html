@@ -1,0 +1,93 @@
+<html>
+<!---Construir 10 tablas de multiplicar--> 
+    <head>        
+    </head>
+    <body>
+      <!-- Inicio del cuerpo del documento HTML -->
+    <script type="text/javascript">
+       // Comienza el script de JavaScript
+       // Agrega el inicio de una tabla
+document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+document.write("<table border=6 width=10% heigth=20% cellpadding=5 bgcolor=FAEBD7> ");
+ // Agrega una fila con el título "Tabla del 1" a la tabla actual
+document.write("<tr><th>Tabla del 1</th></tr> ");
+ // Inicia un bucle for que va desde 1 hasta 10
+for (var i = 1; i <= 10; i++) {
+  // Agrega una fila a la tabla actual con la multiplicación del 1 por el número actual en el bucle
+  document.write("<tr><td>1 x " + i + " = " + 1 * i + "</td></tr>");
+}
+ // Cierra la tabla actual
+document.write("<table border=6 width=10% heigth=20% cellpadding=5 bgcolor=F0F8FF>");
+   // Agrega una fila con el título "Tabla del 2" a una nueva tabla
+document.write("<tr><th>Tabla del 2</th></tr>");
+// Establece i a 1 para un nuevo bucle while
+var i = 1;
+ // Inicia un bucle while que va desde 1 hasta 10
+while (i <= 10) {
+   // Agrega una fila a la tabla actual con la multiplicación del 2 por el número actual en el bucle
+  document.write("<tr><td>2 x " + i + " = " + 2 * i + "</td></tr>");
+  // Incrementa i por 1 en cada iteración
+  i++;
+}
+ // Cierra la tabla actual y se realiza el mismo procedimiento
+document.write("<table border=6 width=10% heigth=20% cellpadding=5 bgcolor=5FAEBD7>");
+document.write("<tr><th>Tabla del 3</th></tr>");
+for (var i = 1; i <= 10; i++) {
+  document.write("<tr><td>3 x " + i + " = " + 3 * i + "</td></tr>");
+}
+document.write("<table border=6 width=10% heigth=20% cellpadding=5 bgcolor=FAEBD7>");
+document.write("<tr><th>Tabla del 6</th></tr>");
+for (var i = 1; i <= 10; i++) {
+  document.write("<tr><td>6 x " + i + " = " + 6 * i + "</td></tr>");
+}
+document.write("<table border=6 width=10% heigth=20% cellpadding=5 bgcolor=5FAEBD7 >");
+document.write("<tr><th>Tabla del 7</th></tr>");
+for (var i = 1; i <= 10; i++) {
+  document.write("<tr><td>7 x " + i + " = " + 7 * i + "</td></tr>");
+}
+while (i <= 10) {
+  document.write("<tr><td>8 x " + i + " = " + 8 * i + "</td></tr>");
+  i++;
+}
+
+document.write("<table border=6 width=10% heigth=20% cellpadding=5  bgcolor=FAEBD7>");
+document.write("<tr><th>Tabla del 9</th></tr>");
+var i = 1;
+while (i <= 10) {
+  document.write("<tr><td>9 x " + i + " = " + 9 * i + "</td></tr>");
+  i++;
+}
+document.write("<table border=6 width=10% heigth=20% cellpadding=5 bgcolor=F0F8FF>");
+document.write("<tr><th>Tabla del 11</th></tr>");
+var i = 1;
+while (i <= 10) {
+  document.write("<tr><td>11 x " + i + " = " + 11 * i + "</td></tr>");
+  i++;
+}
+
+document.write("<table border=6 width=10% heigth=20% cellpadding=5 bgcolor=FAEBD7>");
+document.write("<tr><th>Tabla del 11</th></tr>");
+var i = 1;
+while (i <= 10) {
+  document.write("<tr><td>13 x " + i + " = " + 13 * i + "</td></tr>");
+  i++;
+}
+document.write("<table border=6 width=10% heigth=20% cellpadding=5 bgcolor=F0F8FF>");
+document.write("<tr><th>Tabla del 15</th></tr>");
+var i = 1;
+while (i <= 10) {
+  document.write("<tr><td>15 x " + i + " = " + 15 * i + "</td></tr>");
+  i++;
+}
+document.write("<table border=6 width=10% heigth=20% cellpadding=5 bgcolor=F0F8FF>");
+document.write("<tr><th>Tabla del 20</th></tr>");
+var i = 1;
+while (i <= 10) {
+  document.write("<tr><td>20 x " + i + " = " + 20 * i + "</td></tr>");
+  i++;
+}
+
+</script>
+</body>
+</html>

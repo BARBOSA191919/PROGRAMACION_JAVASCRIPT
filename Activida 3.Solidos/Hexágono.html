@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cálculo de área y perímetro de un hexágono</title>
+</head>
+<body>
+
+	<script>
+		// Pedir al usuario el lado del hexágono
+		var lado = prompt("Ingrese el valor del lado del hexágono:");
+
+		// Convertir el valor de entrada a un número decimal
+		lado = parseFloat(lado);
+
+		// Calcular el área del hexágono
+		var apotema = lado * Math.sqrt(3) / 2;
+		var area = 6 * lado * apotema / 2;
+
+		// Calcular el perímetro del hexágono
+		var perimetro = 6 * lado;
+
+		// Mostrar el resultado en la página
+		document.write("<h2>Resultado:</h2>");
+		document.write("Lado del hexágono: " + lado + "<br>");
+		document.write("Área del hexágono: " + area.toFixed(2) + "<br>");
+		document.write("Perímetro del hexágono: " + perimetro.toFixed(2));
+		document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+  <!---Realizar un programa que me permita evidenciar lo siguiente:
+  y Genera la tabla de depreciación como se presenta a continuación.--> 
+    <head>          
+    </head>
+    <body>
+        <script>
+
+  function generarTablaDepreciacion() { // esta funcion se utiliza para generar la tabla de depreciación
+
+    //para cualquier activo ingresado por el usuario
+    //se utiliza para capturar los datos con el metodo prompt
+    // Cada valor se convierte en un número de punto flotante o entero
+    let costoOriginal = parseFloat(prompt("Ingrese el costo original del activo:")); //
+    let vidaUtil = parseInt(prompt("Ingrese la vida útil del activo en años:"));
+    let depreciacionAnual = parseFloat(prompt("Ingrese la depreciación anual del activo:"));
+    let depreciacionacumulada = parseFloat(prompt("Ingrese la depreciacion acumulada del activo:"));
+
+   // estas líneas se utilizan para comenzar la tabla depreciación
+   // y define los encabezados de la table,los bordes, el ancho o largo
+    document.write("<table border=6 width=20% heigth=30% cellpadding=5 bgcolor=FAEBD7>"); //
+    document.write("<tr><th>Fin de año</th><th>Valor del Activo</th><th>Depreciación Anual</th><th>Depreciación Acumulada</th><th>Valor en Libros</th></tr>");
+    
+    // valorDepreciado se calcula como la diferencia entre el costo original y el valor de la deprecionacumulada. 
+    //anualDepreciacion se establece en el valor ingresado por el usuario o se calcula como el valor depreciado dividido 
+    //por la vida útil si el usuario no ingresa un valor para la depreciación anual. depreciacionAcumulada se establece en cero en este punto.  
+    let valorDepreciado = costoOriginal - depreciacionacumulada;
+    let anualDepreciacion = depreciacionAnual || valorDepreciado / vidaUtil;
+    let depreciacionAcumulada = 0;
+
+    //Estas líneas crean una fila para cada año de vida útil del activo. La variable i es el año actual
+    // y se incrementa en cada iteración del bucle. valorAnual se calcula como el costo original menos
+    // la depreciación acumulada multiplicada por el número de años transcurridos.
+    //
+    for(let i = 1; i <= vidaUtil; i++) {
+      let valorAnual = costoOriginal - (anualDepreciacion * i);
+      //depreciacionAnual se establece en la variable anualDepreciacion que se calculó al principio de la función.
+      let depreciacionAnual = anualDepreciacion;
+     // depreciacionAcumulada se actualiza sumando la depreciacionAnual al valor anterior de depreciacionAcumulada.
+      depreciacionAcumulada += depreciacionAnual;
+      //Se utiliza el método document.write para agregar una nueva fila a la tabla de depreciación.
+      // Cada celda de la fila se construye concatenando el valor correspondiente con una cadena HTML. Las llamadas a 
+      //toFixed se utilizan para redondear los valores a dos decimales antes de mostrarlos en la tabla.
+      document.write("<tr><td>" + i + "</td><td>" + valorAnual.toFixed(2) + "</td><td>" + depreciacionAnual.toFixed(2) + "</td><td>" + depreciacionAcumulada.toFixed(2) + "</td><td>" + (valorAnual - depreciacionAcumulada).toFixed(2) + "</td></tr>");
+    }
+
+ //el valor final se le asigna costooriginal menos la depreacionacumulada para que salga el valor en libros y un document write 
+ // que muestre en la tabla los valores de depreciaon acumulada y el valor en libros
+    let valorFinal = costoOriginal - depreciacionAcumulada;
+    document.write("<tr><td>" + (vidaUtil + 1) + "</td><td>" + valorFinal.toFixed(2) + "</td><td>" + 0 + "</td><td>" + depreciacionAcumulada.toFixed(2) + "</td><td>" + valorFinal.toFixed(2) + "</td></tr>");
+ //Una vez que el bucle for termina de ejecutarse, la tabla de depreciación estará completa y se cerrará con una etiqueta </table>.
+    document.write("</table>");
+  }
+  // se agrega al final generar tabla depreacicon para que nos anexe esta funcion en una tabla
+  generarTablaDepreciacion();
+  document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+</script>
+</body>
+</html>
+</head>

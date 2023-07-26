@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="UTF -8">
+    <title>Esfera en HTML</title>
+  </head>
+  <body>
+    <script>
+      var radio,area,perimetro,volumen;
+      var radio = parseFloat(prompt("Ingrese el radio de la esfera: "));
+      var area = 4 * Math.PI * Math.pow(radio, 2); // formula del area de la esfera
+      var perimetro = 2 * Math.PI * radio;  // formula del perimetro
+      var volumen = (4/3) * Math.PI * Math.pow(radio, 3); // formula del volumen
+
+      document.write("<h1>Resultados</h1>"); 
+      document.write("<p>El área de la esfera es: " + area.toFixed(2) + "</p>");
+      document.write("<p>El perímetro de la esfera es: " + perimetro.toFixed(2) + "</p>");
+      document.write("<p>El volumen de la esfera es: " + volumen.toFixed(2) + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+    </script>
+  </body>
+</html>

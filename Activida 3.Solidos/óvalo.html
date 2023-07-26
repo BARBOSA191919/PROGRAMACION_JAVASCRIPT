@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cálculo de área y perímetro de un óvalo</title>
+</head>
+<body>
+
+	<script>
+		// Pedir al usuario la longitud de los dos radios principales del óvalo
+		var radio1 = prompt("Ingrese la longitud del primer radio del óvalo:");
+		var radio2 = prompt("Ingrese la longitud del segundo radio del óvalo:");
+
+		// Convertir el valor de entrada a un número decimal
+		radio1 = parseFloat(radio1);
+		radio2 = parseFloat(radio2);
+
+		// Calcular el área del óvalo
+		var area = Math.PI * radio1 * radio2;
+
+		// Calcular el perímetro del óvalo
+		var a = Math.max(radio1, radio2);
+		var b = Math.min(radio1, radio2);
+		var h = Math.pow((a - b), 2) / Math.pow((a + b), 2);
+		var perimetro = Math.PI * (a + b) * (1 + (3 * h) / (10 + Math.sqrt(4 - (3 * h))));
+
+		// Mostrar el resultado en la página
+		document.write("<h2>Resultado:</h2>");
+		document.write("Longitud del primer radio del óvalo: " + radio1 + "<br>");
+		document.write("Longitud del segundo radio del óvalo: " + radio2 + "<br>");
+		document.write("Área del óvalo: " + area.toFixed(2) + "<br>");
+		document.write("Perímetro del óvalo: " + perimetro.toFixed(2));
+		document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+	</script>
+</body>
+</html>

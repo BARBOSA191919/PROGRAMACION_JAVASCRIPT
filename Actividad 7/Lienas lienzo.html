@@ -1,0 +1,69 @@
+<html>
+    <body>
+            <canvas id="Lineas_lienzo" width="800" height="450" style="border:4px solid green">
+            </canvas>
+        <script>
+            var c = document.getElementById("Lineas_lienzo"); // Crea documento canva y asigna una variable 
+            var ctx = c.getContext('2d');//Asigna contexto
+
+            x1=prompt("x1:");
+            x2=prompt("x2:");
+            y1=prompt("y1:");
+            y2=prompt("y2:");
+            ctx.beginPath(); //empezar la ruta
+            ctx.moveTo(50,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(80,90); //Dibuja la linea desde el punto 0,0 hasta 800,450
+            ctx.moveTo(80,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(80,60);
+            ctx.moveTo(110,60); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(80,60);
+            ctx.moveTo(110,60); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(110,92);
+            ctx.moveTo(145,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(110,90);
+            ctx.moveTo(145,120); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(145,90);
+            ctx.moveTo(145,120); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(180,120);
+            ctx.moveTo(180,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(180,120);
+            ctx.moveTo(180,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(210,90);
+            ctx.moveTo(210,60); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(210,90);
+            ctx.moveTo(210,60); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(240,60);
+            ctx.moveTo(240,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(240,60);
+            ctx.moveTo(240,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(280,90);
+            ctx.moveTo(280,125); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(280,90);
+            ctx.moveTo(280,125); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(320,125);
+            ctx.moveTo(320,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(320,125);
+            ctx.moveTo(320,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(350,90);
+            ctx.moveTo(350,60); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(350,90);
+            ctx.moveTo(350,60); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(380,60);
+            ctx.moveTo(380,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(380,60);
+            ctx.moveTo(380,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(420,90);
+            ctx.moveTo(420,130); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(420,90);
+            ctx.moveTo(420,129); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(460,128);
+            ctx.moveTo(460,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(460,128);
+            ctx.moveTo(460,90); //Mover el inicio de la linea a la coordenada (0,0)
+            ctx.lineTo(490,90);
+            ctx.stroke(); // Dibuja la silueta de la linea
+            document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+        </script>
+    </body>
+</html>

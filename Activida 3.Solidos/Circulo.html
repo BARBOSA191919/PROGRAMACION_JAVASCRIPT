@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cálculo de área y perímetro de un círculo</title>
+</head>
+<body>
+
+	<script>
+		// Pedir al usuario el radio del círculo
+		var radio = prompt("Ingrese el radio del círculo:");
+
+		// Convertir el valor de entrada a un número decimal
+		radio = parseFloat(radio);
+
+		// Calcular el área del círculo
+		var area = Math.PI * radio * radio;
+
+		// Calcular el perímetro del círculo
+		var perimetro = 2 * Math.PI * radio;
+
+		// Mostrar el resultado en la página
+		document.write("<h2>Resultado:</h2>");
+		document.write("Radio del círculo: " + radio + "<br>");
+		document.write("Área del círculo: " + area.toFixed(2) + "<br>");
+		document.write("Perímetro del círculo: " + perimetro.toFixed(2));
+		document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+	</script>
+
+</body>
+</html>

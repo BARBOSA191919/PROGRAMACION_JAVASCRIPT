@@ -1,0 +1,35 @@
+<html>
+  <!---Leer la N estatura de estudiantes del salón de clase e imprimir la
+estatura promedio..--> 
+    <head>        
+    </head>
+    <body>
+    <script type="text/javascript">
+
+
+// Pedir al usuario que ingrese el número de estudiantes
+var n = prompt("Ingrese el número de estudiantes:");
+
+// Convertir la entrada del usuario en un número entero
+n = parseInt(n);
+
+// Declarar una variable para almacenar la suma de las alturas
+var suma_alturas = 0;
+
+// Leer la estatura de cada estudiante y agregarla a la suma
+for (var i = 1; i <= n; i++) {
+  var altura = prompt("Ingrese la estatura del estudiante " + i + ":");
+  altura = parseFloat(altura); // Convertir la entrada del usuario en un número decimal
+  suma_alturas += altura;
+}
+
+// Calcular el promedio de las alturas
+var promedio = suma_alturas / n;
+
+// Imprimir el promedio en la consola del navegador y toFixed para redondear decimales a 2 digitos.
+alert("El promedio de estatura de los estudiantes es: " + promedio.toFixed(2));
+document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+</script>
+</body>
+</html>

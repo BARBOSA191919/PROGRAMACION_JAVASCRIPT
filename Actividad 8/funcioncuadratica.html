@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Graficador de ecuaciones</title>
+    <link rel="stylesheet" type="text/css" href="Style.css" />
+
+</head>
+
+<body>
+    <h1>Graficador de ecuaciones</h1>
+    <p>Selecciona el tipo de ecuación que deseas graficar:</p>
+    <select id="equation-type">
+        <option value="line">Recta (y = mx + b)</option>
+        <option value="quadratic">Cuadrática (y = ax^2 + bx + c)</option>
+    </select>
+    <div id="line-inputs">
+        <p>Ingresa los coeficientes de la recta:</p>
+        <label for="m">m:</label>
+        <input type="number" id="m">
+        <label for="b">b:</label>
+        <input type="number" id="b">
+    </div>
+    <div id="quadratic-inputs" style="display: none;">
+        <p>Ingresa los coeficientes de la ecuación cuadrática:</p>
+        <label for="a">a:</label>
+        <input type="number" id="a">
+        <label for="b2">b:</label>
+        <input type="number" id="b2">
+        <label for="c">c:</label>
+        <input type="number" id="c">
+    </div>
+    <button id="draw-button">Graficar</button>
+
+    <canvas width="300" height="300"></canvas>
+
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const width = canvas.width;
+        const height = canvas.height;
+
+        // Dibuja los ejes
+        ctx.beginPath();
+        ctx.moveTo(width / 2, 0);
+        ctx.lineTo(width / 2, height);
+        ctx.moveTo(0, height / 2);
+        ctx.lineTo(width, height / 2);
+        ctx.stroke();
+        ctx.font = '16px sans-serif';
+        ctx.fillText('x', width - 20, height / 2 - 10);
+        ctx.fillText('y', width / 2 + 10, 20);
+
+
+        // Escala para ajustar la gráfica al tamaño del canvas
+        const scale = 5;
+
+        // Función para dibujar una ecuación cuadrática
+        function drawQuadratic(a, b, c) {
+            ctx.beginPath();
+            for (let x = -width / 2; x < width / 2; x++) {
+                const y = a * x * x + b * x + c;
+                ctx.lineTo(width / 2 + x * scale, height / 2 - y * scale);
+            }
+            ctx.stroke();
+        }
+
+        // Función para dibujar una recta
+        function drawLine(m, b) {
+            ctx.beginPath();
+            ctx.moveTo(0, height / 2 - b * scale);
+            ctx.lineTo(width, height / 2 - (m * width + b) * scale);
+            ctx.stroke();
+        }
+
+        // Maneja el cambio en el tipo de ecuación seleccionado
+        const equationTypeSelect = document.querySelector('#equation-type');
+        const lineInputs = document.querySelector('#line-inputs');
+        const quadraticInputs = document.querySelector('#quadratic-inputs');
+        equationTypeSelect.addEventListener('change', () => {
+            if (equationTypeSelect.value === 'line') {
+                lineInputs.style.display = 'block';
+                quadraticInputs.style.display = 'none';
+            } else {
+                lineInputs.style.display = 'none';
+                quadraticInputs.style.display = 'block';
+            }
+        });
+
+        // Maneja el clic en el botón "Graficar"
+        const drawButton = document.querySelector('#draw-button');
+        drawButton.addEventListener('click', () => {
+            // Borra el canvas
+            ctx.clearRect(0, 0, width, height);
+
+            // Vuelve a dibujar los ejes
+            ctx.beginPath();
+            ctx.moveTo(width / 1.89, 0);
+            ctx.lineTo(width / 1.89, height);
+            ctx.moveTo(0, height / 1.89);
+            ctx.lineTo(width, height / 1.89);
+            ctx.stroke();
+
+            // Agrega marcas de graduación a los ejes
+            ctx.beginPath();
+            ctx.font = '12px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+            for (let x = 0; x < width; x += 30) {
+                ctx.moveTo(x, height / 1.90 - 5);
+                ctx.lineTo(x, height / 1.90 + 5);
+                ctx.fillText((x - width / 2) / scale, x, height / 2 + 10);
+            }
+            ctx.textAlign = 'right';
+            ctx.textBaseline = 'middle';
+            for (let y = 0; y < height; y += 30) {
+                ctx.moveTo(width / 1.90 - 6, y);
+                ctx.lineTo(width / 1.90 + 6, y);
+                ctx.fillText((height / 2 - y) / scale, width / 2 - 10, y);
+            }
+            ctx.stroke();
+
+            // Dibuja una cuadrícula en el fondo
+            ctx.beginPath();
+            ctx.strokeStyle = '#eee';
+            for (let x = 0; x < width; x += 30) {
+                ctx.moveTo(x, 0.5);
+                ctx.lineTo(x, height);
+            }
+            for (let y = 0; y < height; y += 30) {
+                ctx.moveTo(0.5, y);
+                ctx.lineTo(width, y);
+            }
+            ctx.stroke();
+            ctx.strokeStyle = '#000';
+
+            // Dibuja la gráfica de la ecuación seleccionada
+            if (equationTypeSelect.value === 'line') {
+                const m = parseFloat(document.querySelector('#m').value);
+                const b = parseFloat(document.querySelector('#b').value);
+                drawLine(m, b);
+            } else {
+                const a = parseFloat(document.querySelector('#a').value);
+                const b = parseFloat(document.querySelector('#b2').value);
+                const c = parseFloat(document.querySelector('#c').value);
+                drawQuadratic(a, b, c);
+            }
+        });
+    </script>
+</body>
+</html>

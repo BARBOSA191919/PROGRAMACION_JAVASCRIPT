@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <!--Luisa Reyes es una contadora muy diligente en sus labores cotidianas,
+    actualmente tiene un cliente cuya empresa no consideró el desgaste de una 
+    maquinaria, la cual muy pronto dejará de funcionar,
+    (estiman que en dos años pasará esto). El costo de reposición
+    de una nueva maquinaria es de aproximadamente $153 (miles de dls),
+    por lo cual y teniendo en cuenta lo importante de cada maquinaria 
+    para el funcionamiento de la empresa, le propone a su cliente 
+    que considere dejar un porcentaje de las utilidades para las
+    inversiones futuras. Si un banco le ofrece una tasa de interés 
+    del 32% nominal capitalizable trimestralmente. ¿El gerente de 
+    la empresa desea saber cuánto debe dejar de sus utilidades para 
+    apertura una cuenta de inversión que le pueda dar en los dos años,
+    la cantidad requerida?-->
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            const costoMaquinaria = 153000; // en miles de dólares
+            const tasaInteresNominal = 32; // en porcentaje
+            const capitalizacion = 4; // trimestralmente
+            const tiempoInversion = 2; // en años
+
+            // Se convierte la tasa nominal a efectiva
+            const tasaInteresEfectiva = (1 + tasaInteresNominal / (100 * capitalizacion)) ** capitalizacion - 1;
+
+            // Se calcula la cantidad que se debe dejar de las utilidades
+            const cantidadInversion = costoMaquinaria / ((1 + tasaInteresEfectiva) ** (capitalizacion * tiempoInversion));
+
+            alert(`El gerente de la empresa debe dejar ${cantidadInversion.toFixed(2)} dólares de sus utilidades para abrir una cuenta de inversión que le permita cubrir el costo de reposición de la maquinaria en dos años.`);
+            document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+
+        </script>
+    </body>    
+</html>

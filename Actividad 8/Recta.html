@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Gráfica de Ecuación de Recta</title>
+    <link rel="stylesheet" type="text/css" href="style (1).css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div style="margin: 0 auto; display: grid; place-content: center;">
+      <h1>Ecuación Recta</h1>
+      <form>
+        <tr>
+          <td rowspan="3"> <center><a href="https://www.usco.edu.co/"><img src="usco logo.png" alt="USCO" width="80" height="80"/></center></a> </td>
+      </tr>
+            <!--agregamos las variables -->
+        <label for="m">Pendiente (m):</label>
+        <input type="number" id="m" value= /><br /><br />
+        <label for="b">Ordenada al Origen (b):</label>
+        <input type="number" id="b" value= /><br /><br />
+        <input type="button"value= "DIBUJAR  "onclick="drawGraph();"></input><br /><br />
+        <input type="button" value= "BORRAR  " onclick="borrar();"></input><br /><br />
+        <h3> <center>Recta (y = mx + b)</center></h3>
+        <h5> <center>Santiago B. y Diego M. </center></h5>
+        
+        <br /><br />
+      </form>
+      <canvas
+        id="myCanvas"
+        width="600"
+        height="600"
+        style="border: 1px solid #a14f4f; border-radius: 20px;
+        border: double;"
+      >
+      </canvas>
+    </div>
+    <script>
+      function drawGraph() {
+        // Obtener el contexto del canvas
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Limpiar el canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Obtener los valores de m y b
+        var m = parseFloat(document.getElementById("m").value);
+        var b = parseFloat(document.getElementById("b").value);
+
+        // Dibujar los ejes
+
+        ctx.font = "12px Arial";
+        for (var i = -10; i <= 10; i++) {
+          ctx.fillText(i, canvas.width / 2 + i * 20, canvas.height / 2 + 15);
+          ctx.fillText(i, canvas.width / 2 - 15, canvas.height / 2 - i * 20);
+        }
+
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height / 2);
+        ctx.lineTo(canvas.width, canvas.height / 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(canvas.width / 2, 0);
+        ctx.lineTo(canvas.width / 2, canvas.height);
+        ctx.stroke();
+
+        // Dibujar la gráfica de la recta
+        ctx.beginPath();
+        for (var x = -10; x <= 10; x += 0.1) {
+          var y = m * x + b;
+          ctx.lineTo(canvas.width / 2 + x * 20, canvas.height / 2 - y * 20);
+          ctx.strokeStyle = "green";
+          
+        }
+        ctx.stroke();
+      }
+      function borrar() {
+        // Establecer los campos de entrada en una cadena vacía
+        document.getElementById("m").value = "";
+        document.getElementById("b").value = "";
+        
+
+        // Limpiar el canvas
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+  <!---Se compra una maquina en $ 100.000.00 y se calcula que su vida util será de 6 años. 
+    si se calcula que tendrá un valor de desechos de 10.000.00, encuentre la depreciacion nanual.
+     Genera la tabla de depreciación con java script .--> 
+    <head>        
+    </head>
+    <body>
+        <script type="text/javascript">
+    
+    var findeaño,depreanual,depreacumu,valorlibros,valordesecho //declarar variables
+
+var depreanual = (c - s)/n //utilizamos la ecuacion (14.3)
+let valor = parseFloat(prompt("Ingrese el valor del desecho:"));
+let findeaño = parseFloat(prompt("Ingrese el fin de año:"));
+let depreanual = parseInt(prompt("Ingrese la depreciacion anual:"));
+let depreacumu = parseFloat(prompt("Ingrese la depreciacion acumulada:"));
+let valorlibros = parseFloat(prompt("Ingrese el valor en libros:"));
+document.write("<table border=6 width=20% heigth=30% cellpadding=5>");
+document.write("<tr>");
+document.write("<th > FIN DE AÑO </th><th>DEPRECIACIÓN ANUAL </th> <th>DEPRECIACIÓN ACUMULADA </th> <th>VALOR DE LIBROS</th> ")
+document.write("<tr>");
+document.write("<h1>TABLA DE DEPRECIACIÓN </h1>");
+
+    for(i=0;i<=6;i++)
+    {
+
+   depreacumu=i*depreanual ;
+   valorlibros=((150001*findeaño)+10000)-depreacumu; //ecuacion valor de libros
+    
+document.write("<tr>");
+document.write("<td>" +i+ "</td><td>" +depreanual.toFixed(2)+"</td><td>" +depreacumu.toFixed(2)+ "</td <td>"+valorlibros.toFixed(2)+"</td>");
+document.write("<tr>");
+
+    }
+ 
+
+</script>
+</body>
+</html>
+</head>

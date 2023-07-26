@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Área y perímetro de un rombo</title>
+  </head>
+  <body>
+    <script>
+      var diagonalMayor,diagonalMenor,perimetro,area;
+      // Pedir al usuario que ingrese los valores de diagonal mayor y diagonal menor del rombo
+      var diagonalMayor = parseFloat(prompt("Ingrese el valor de la diagonal mayor del rombo:"));
+      var diagonalMenor = parseFloat(prompt("Ingrese el valor de la diagonal menor del rombo:"));
+
+      // Calcular el perímetro del rombo
+      var perimetro = 4 * Math.sqrt(Math.pow(diagonalMayor / 2, 2) + Math.pow(diagonalMenor / 2, 2));
+
+      // Calcular el área del rombo
+      var area = (diagonalMayor * diagonalMenor) / 2;
+
+      // Mostrar los resultados en la página
+      document.write("<h2>Resultados</h2>");
+      document.write("<p>El perímetro del rombo es: " + perimetro + "</p>");
+      document.write("<p>El área del rombo es: " + area + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+

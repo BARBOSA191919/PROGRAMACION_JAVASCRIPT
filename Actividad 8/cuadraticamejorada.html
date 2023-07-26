@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>Gráfica de la Ecuación de la Recta con Canvas</title>
+<meta charset="utf-8"/>
+<link rel="StylSheet" href="estilo.css">
+  </head>
+<body>
+    <label>Coeficiente a:</label>
+    <input type="number" id="coefA">
+    <br>
+    <label>Coeficiente b:</label>
+    <input type="number" id="coefB">
+    <br>
+    <label>Coeficiente c:</label>
+    <input type="number" id="coefC">
+    <br><br>
+    <button onclick="graficar()">Generar gráfico</button>
+    <br><br>
+    <canvas id="lienzo" width="500" height="650" style="border:2px solid rgb(0, 132, 255)"></canvas>
+    <script>
+    var c = document.getElementById("lienzo");
+    var ctx = c.getContext("2d");
+    
+    // Función para dibujar el plano cartesiano
+    function dibujarPlanoCartesiano() {
+      // Dibuja los ejes X e Y
+        ctx.beginPath();
+        ctx.moveTo(50, 325);
+        ctx.lineTo(450, 325);
+        ctx.moveTo(250, 25);
+        ctx.lineTo(250, 625);
+        ctx.stroke();
+
+      // Dibuja los números en los ejes X e Y
+        for (var i = -10; i <= 10; i++) {
+        // Eje X
+        ctx.fillText(i, 250 + i * 20, 345);
+        // Eje Y
+        ctx.fillText(-i, 235, 325 - i * 20);
+    }
+    }
+    
+    // Función para calcular la coordenada Y en función de la coordenada X
+    function calcularY(x, a, b, c) {
+      return a * x * x + b * x + c;
+    }
+    
+    // Función para graficar la función cuadrática
+    function graficar() {
+      // Obtiene los coeficientes de la función cuadrática ingresados por el usuario
+        var a = parseFloat(document.getElementById("coefA").value);
+        var b = parseFloat(document.getElementById("coefB").value);
+        var c = parseFloat(document.getElementById("coefC").value);
+        
+      // Limpia el canvas
+        ctx.clearRect(0, 0, c.width, c.height);
+        
+      // Dibuja el plano cartesiano
+        dibujarPlanoCartesiano();
+        
+      // Dibuja la función cuadrática en el canvas
+        ctx.beginPath();
+        for (var x = -10; x <= 10; x++) {
+        var y = calcularY(x, a, b, c);
+        ctx.lineTo(250 + x * 20, 325 - y * 20);
+    }
+        ctx.stroke();
+    
+      // Muestra la ecuación de la función cuadrática en un mensaje de alerta
+        alert("Ecuación de la función cuadrática: y = " + a + "x^2 + " + b + "x + " + c);
+    }
+    //Santiago barbosa y Diego Martinez;
+    </script>
+</body>
+</html>

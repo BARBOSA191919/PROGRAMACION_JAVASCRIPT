@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora de Interés Compuesto</title>
+</head>
+<body>
+	<!-- Script para calcular el interés compuesto -->
+	<script type="text/javascript">
+		// Definimos una función para calcular el interés compuesto
+		function calcularInteresCompuesto(va, interes, tiempo) {
+			// Calculamos el valor futuro
+			var vf = va * (Math.pow((1 + interes / 100), tiempo));
+			// Imprimimos el resultado en el documento HTML
+			document.write("El valor futuro es: " + vf);
+		}
+    	// Pedimos al usuario los datos necesarios
+	var va = parseInt(prompt("Ingrese el valor actual o a depositar:"));
+	var interes = parseInt(prompt("Ingrese la tasa de interés (%):"));
+	var tiempo = parseInt(prompt("Ingrese el tiempo (en años):"));
+
+	// Llamamos a la función para calcular el interés compuesto
+	calcularInteresCompuesto(va, interes, tiempo);
+	document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+</script>
+</body>
+</html>

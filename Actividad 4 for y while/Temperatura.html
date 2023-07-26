@@ -1,0 +1,35 @@
+<html>
+<!--Leer temperatura de 7 días de la semana e imprimir temperatura más
+alta.--> 
+    <head>        
+    </head>
+    <body>
+    <script type="text/javascript">
+
+// Este arreglo se utilizará para almacenar las temperaturas de los 7 días de la semana.
+var temperaturas = [];
+// Este código utiliza un ciclo for para leer las temperaturas de los 7 días de la semana.
+// para solicitar al usuario que ingrese la temperatura del día actual. 
+//La temperatura ingresada se convierte de una cadena de texto a un número decimal 
+for (var i = 0; i < 7; i++) {
+  var temperatura = prompt("Ingresa la temperatura del día " + (i+1));
+  temperaturas.push(parseFloat(temperatura));
+}
+// La variable temperaturaMaxima se inicializa con el valor de la primera temperatura en el arreglo.
+// Luego, el ciclo se ejecuta 6 veces (una vez para cada día después del primer día)
+// y compara la temperatura actual con la temperatura más alta conocida hasta el momento. 
+//Si la temperatura actual es mayor que la temperatura más alta conocida hasta el momento.
+var temperaturaMaxima = temperaturas[0];
+for (var i = 1; i < 7; i++) {
+  if (temperaturas[i] > temperaturaMaxima) {
+    temperaturaMaxima = temperaturas[i];
+  }
+}
+
+// Este código utiliza la función alert() para mostrar un mensaje en una ventana emergente en el navegador.
+alert("La temperatura más alta de la semana fue: " + temperaturaMaxima);
+document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+</script>
+</body>
+</html>

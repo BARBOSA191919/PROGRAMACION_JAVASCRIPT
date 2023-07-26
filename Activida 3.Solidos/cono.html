@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF -8">
+    <title>Cono en HTML</title>
+  </head>
+  <body>
+    <!--se abre el javascript -->
+    <script>
+        // se definen variables y se asignan valores
+      var radio = parseFloat(prompt("Ingrese el radio de la base del cono: "));
+      var altura = parseFloat(prompt("Ingrese la altura del cono: "));
+      //se definen variables y se les da  un valor con respecto a una operación
+      var areaBase = Math.PI * Math.pow(radio, 2);
+      var generatriz = Math.sqrt(Math.pow(radio, 2) + Math.pow(altura, 2));
+      var areaLateral = Math.PI * radio * generatriz;
+      var areaTotal = areaBase + areaLateral;
+      var perimetroBase = 2 * Math.PI * radio;
+      var volumen = (1/3) * Math.PI * Math.pow(radio, 2) * altura;
+      // se demuestra en pantalla los restultados de las operaciones realizadas
+      document.write("<h1>Resultados</h1>");
+      document.write("<p>El área de la base del cono es: " + areaBase.toFixed(2) + "</p>");
+      document.write("<p>El área lateral del cono es: " + areaLateral.toFixed(2) + "</p>");
+      document.write("<p>El área total del cono es: " + areaTotal.toFixed(2) + "</p>");
+      document.write("<p>El perímetro de la base del cono es: " + perimetroBase.toFixed(2) + "</p>");
+      document.write("<p>El volumen del cono es: " + volumen.toFixed(2) + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+      // se cierra el javascript
+    </script>
+  </body>
+</html>

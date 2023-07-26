@@ -1,0 +1,37 @@
+<html>
+    <!---Leer N personas e imprimir cuantos de ellos son niños, adolescentes y
+adultos.--> 
+    <head>        
+    </head>
+    <body>
+    <script type="text/javascript">
+
+// Definir variables para contar el número de niños, adolescentes y adultos
+var ninos = 0;
+var adolescentes = 0;
+var adultos = 0;
+
+// Leer la edad de N personas
+var n = prompt("¿Cuántas personas quieres clasificar?");
+// Este bucle se repite N veces (es decir, para cada persona)
+for (var i = 0; i < n; i++) {
+   // Pedir al usuario que ingrese la edad de la persona i
+  var edad = prompt("Ingresa la edad de la persona " + (i+1));
+
+  // Clasificar la edad en niños, adolescentes y adultos
+  if (edad < 13) {
+    ninos++; // Incrementar el contador de niños
+  } else if (edad >= 13 && edad < 18) { //// Si la edad es 13 o más, y menor que 18
+    adolescentes++; //// Incrementar el contador de adolescentes
+  } else { // // Si la edad es 18 o más
+    adultos++; // // Incrementar el contador de adultos
+  }
+}
+
+// Imprimir los resultados
+alert("Hay " + ninos + " niños, " + adolescentes + " adolescentes y " + adultos + " adultos.");
+document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+</script>
+</body>
+</html>

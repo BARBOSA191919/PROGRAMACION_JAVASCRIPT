@@ -1,0 +1,27 @@
+<html>
+<head>
+	<meta charset="UTF -8">
+	<title>Cálculo del área, perímetro y volumen de un cilindro oblicuo</title>
+</head>
+<body>
+	<h1>Cálculo del área, perímetro y volumen de un cilindro oblicuo</h1>
+	<script>
+        var radio,altura, areabase,perimetroBase,volumen;
+		// Solicitar al usuario el radio y la altura del cilindro
+		var radio =parseFloat(prompt("Ingrese el radio del cilindro:"));
+		var altura = parseFloat(prompt("Ingrese la altura del cilindro:"));
+
+		// Calcular el área y perímetro de la base del cilindro
+		var areaBase = Math.PI * radio * radio;
+		var perimetroBase = 2 * Math.PI * radio;
+
+		// Calcular el volumen del cilindro
+		var volumen = areaBase * altura;
+
+		// Mostrar los resultados al usuario en el documento HTML
+		document.write("<p>Área de la base del cilindro: " + areaBase.toFixed(2) + "</p>");
+		document.write("<p>Perímetro de la base del cilindro: " + perimetroBase.toFixed(2) + "</p>");
+		document.write("<p>Volumen del cilindro: " + volumen.toFixed(2) + "</p>");
+	</script>
+</body>
+</html>

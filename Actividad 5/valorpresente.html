@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <!--Cuanto tendré que ahorra hoy para dentro 
+    de 5 años tendre 15.000.000 si el banco paga el 5% mensual-->
+    <head>
+    </head>
+        <body>
+
+    <!--Este script contiene la función de JavaScript que calculará el valor presente-->
+    <script type="text/javascript">
+            
+        //Esta es la función que calcula el valor presente. Toma tres parámetros: VF (el valor deseado en el futuro), interes (la tasa de interés mensual en porcentaje) y tiempo (el número de meses hasta que se desee alcanzar el valor deseado).
+        function Valor_Presente(VF,interes,tiempo)
+        {
+            //Esta variable VA almacenará el valor presente calculado
+            var VA;
+            
+            //Esta es la fórmula matemática para calcular el valor presente. Se utiliza la función Math.pow() para elevar el denominador a la potencia n.
+            VA = VF/(Math.pow((1+interes/100),tiempo));
+            
+            //Se escribe el resultado en la página web usando document.write()
+            document.write("Tiene que horrar = " , VA);
+        }
+        
+        //Estas son las variables que almacenarán la entrada del usuario para VF, interes y tiempo.
+        var VF, interes,tiempo;
+
+        //Se utiliza prompt() para solicitar al usuario el valor deseado en el futuro, la tasa de interés mensual y el número de meses hasta el momento deseado.
+        VF = parseInt(prompt("Valor deseado(VF):"));
+        interes = parseInt(prompt("Interes: "));
+        tiempo = parseInt(prompt("Tiempo:"));
+        
+        //Se llama a la función Valor_Presente() con los valores ingresados por el usuario.
+        Valor_Presente(VF,interes,tiempo);
+        document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+        </script>
+    </body>    
+</html>

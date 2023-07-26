@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Área y perímetro de un triángulo</title>
+  </head>
+  <body>
+    <script>
+      var base,altura,lado1,lado2,lador3,perimetrro,area
+      // Pedir al usuario que ingrese los valores de base, altura y lados del triángulo
+      var base = parseFloat(prompt("Ingrese la base del triángulo:"));
+      var altura = parseFloat(prompt("Ingrese la altura del triángulo:"));
+      var lado1 = parseFloat(prompt("Ingrese el lado 1 del triángulo:"));
+      var lado2 = parseFloat(prompt("Ingrese el lado 2 del triángulo:"));
+      var lado3 = parseFloat(prompt("Ingrese el lado 3 del triángulo:"));
+
+      // Calcular el perímetro del triángulo
+      var perimetro = lado1 + lado2 + lado3;
+
+      // Calcular el área del triángulo
+      var area = (base * altura) / 2;
+
+      // Mostrar los resultados en la página
+      document.write("<h2>Resultados</h2>");
+      document.write("<p>El perímetro del triángulo es: " + perimetro + "</p>");
+      document.write("<p>El área del triángulo es: " + area + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>
+<title>LEER UN ARCHIVO DE IMAGEN </title>
+</h1>  
+    <!--Se verifica si el navegador admite las API necesarias para manejar archivos-->
+    <input type="file" id = "file-selector">
+    <p id= "status"></p>
+    <div>
+    <img id="output">
+</div>
+<script>
+    //Se restablece el contenido de la imagen (output) y el estado (status) a valores iniciales.
+        const status = document.getElementById("status");
+        const output = document.getElementById("output");
+        if (window.FileList && window.file && window.filReader)
+{
+document.getElementById('file-selector').addEventListener('change', event => {    
+output.src = '';
+status.textContent = '';
+const file = event.target.files[0];
+if(!file.type)
+{
+// indicando que el navegador no admite ese tipo de imagen.x    
+    status.textContent = '';
+    const file = event.target.file[0];
+    if(!file.type)
+    {
+
+        status.textContent= 'ESTE NAVEGADOR NO SOPORTA ESTE TIPO DE IMAGEN'
+        return;
+    } 
+    
+}
+//Se crea un objeto FileReader para leer el contenido del archivo.
+    const reader = new FileReader ();
+    reader.addEventListener('load',event =>{
+    output.src = event.target.result;
+    });
+    reader.readAsDataURL(file);
+    });
+    }
+    </script>
+</body>
+</html>
+
+

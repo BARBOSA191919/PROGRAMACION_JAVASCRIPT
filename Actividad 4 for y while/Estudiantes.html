@@ -1,0 +1,62 @@
+<html>
+  <!---leer N notas de estudiantes indicando promedio por estudiante,
+promedio de curso, promedio más alto y bajo.--> 
+    <head>        
+    </head>
+    <body>
+    <script type="text/javascript">
+
+//Aquí se inicializan las variables que se utilizarán para almacenar los promedios 
+//de los estudiantes,
+var sumPromedios = 0;
+var numEstudiantes = 0;
+var promedioMasAlto = 0;
+var promedioMasBajo = Infinity;
+
+// Leer las notas de los estudiantes Dentro del ciclo while se utiliza prompt() 
+// para solicitar al usuario el nombre del estudiante 
+// y luego, otro ciclo while para leer las tres notas del estudiante. 
+//Se calcula el promedio y Luego, se utiliza alert() para mostrar el promedio del estudiante.
+var n = prompt("¿Cuántos estudiantes quieres evaluar?");
+var i = 0;
+while (i < n) {
+  var nombre = prompt("Ingresa el nombre del estudiante " + (i+1));
+  var sumaNotas = 0;
+  var j = 0;
+  while (j < 3) {
+    var nota = parseFloat(prompt("Ingresa la nota " + (j+1) + " de " + nombre));
+    sumaNotas += nota; //sumarle una cantidad al valor de una variable
+    j++;
+  }
+  var promedio = sumaNotas / 3;
+  alert(nombre + " tiene un promedio de " + promedio.toFixed(2));
+  //se actualizan las variables sumPromedios y numEstudiantes 
+  // con los valores almacenados en promedioMasAlto y promedioMasBajo para determinar 
+  // el promedio más alto y el más bajo.
+  sumPromedios += promedio;
+  numEstudiantes++;
+  if (promedio > promedioMasAlto) {
+    promedioMasAlto = promedio;
+  }
+  if (promedio < promedioMasBajo) {
+    promedioMasBajo = promedio;
+  }
+  i++;
+}
+
+// se calcula el promedio del curso dividiendo la suma 
+//de todos los promedios de los estudiantes por el número de estudiantes. 
+var promedioCurso = sumPromedios / numEstudiantes;
+document.write("<p>El promedio del curso es:  " + promedioCurso.toFixed(2))+"</p>";
+
+// Imprimir el promedio más alto y más bajo
+//Por último, estas dos líneas de código utilizan alert() para mostrar el promedio más alto y el más bajo,
+// respectivamente. Se utiliza el método toFixed() para limitar el número de decimales a dos.
+document.write("<p>El promedio más alto es:  " + promedioMasAlto.toFixed(2)) +"</p>";
+document.write("<p>El promedio más bajo es:  " + promedioMasBajo.toFixed(2))+"</p>";
+document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+
+</script>
+</body>
+</html>

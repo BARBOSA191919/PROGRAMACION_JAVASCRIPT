@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF -8">
+    <title>Área, perímetro y volumen de una pirámide</title>
+  </head>
+  <body>
+    <script>
+      var base,altura, apotema, perimetrobase, areabase,areatotal, volumen;
+      // Pedir al usuario que ingrese el valor de la base y la altura de la pirámide
+      var base = parseFloat(prompt("Ingrese el valor de la base de la pirámide:"));
+      var altura = parseFloat(prompt("Ingrese el valor de la altura de la pirámide:"));
+
+      // Calcular la apotema de la pirámide
+      var apotema = Math.sqrt(Math.pow(base/2, 2) + Math.pow(altura, 2));
+
+      // Calcular el perímetro de la base de la pirámide
+      var perimetroBase = base * 4;
+
+      // Calcular el área de la base de la pirámide
+      var areaBase = Math.pow(base, 2);
+
+      // Calcular el área total de la pirámide
+      var areaTotal = areaBase + (perimetroBase * apotema) / 2;
+
+      // Calcular el volumen de la pirámide
+      var volumen = (areaBase * altura) / 3;
+
+      // Mostrar los resultados en la página
+      document.write("<h2>Resultados</h2>");
+      document.write("<p>El perímetro de la base de la pirámide es: " + perimetroBase + "</p>");
+      document.write("<p>El área total de la pirámide es: " + areaTotal + "</p>");
+      document.write("<p>El volumen de la pirámide es: " + volumen + "</p>");
+      document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+    </script>
+  </body>
+</html>

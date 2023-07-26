@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="UTF -8">
+    <title>Área, perímetro y volumen de una pirámide irregular</title>
+  </head>
+  <body>
+    <script>
+        var base,altura,lado1,lado,lado2,lado3
+var base = parseFloat(prompt("Ingrese la base de la pirámide irregular:"));
+var altura = parseFloat(prompt("Ingrese el valor de la altura de la piramide irregular:"));
+var lado1 = parseFloat(prompt("Ingrese el valor del lado1 de la piramide irregular:"));
+var lado2 = parseFloat(prompt("Ingrese el valor del lado2 de la piramide irregular:"));
+var lado3 = parseFloat(prompt("Ingrese el valor del lado3 de la piramide irregular:"));
+
+
+let s = (lado1 + lado2 + lado3) / 2; // Semiperímetro de la base
+// Área de la base utilizando la fórmula de Herón
+let areaBase = Math.sqrt(s * (s - lado1) * (s - lado2) * (s - lado3)); 
+
+
+let perimetroBase = lado1 + lado2 + lado3; // Perímetro de la base
+
+let volumen = (base * altura) / 3; // Volumen de la pirámide
+
+document.write("Área de la base de la piramide irregular : " + areaBase + "<br>");
+document.write("Perímetro de la base de la piramide irregular: " + perimetroBase + "<br>");
+document.write("Volumen de la pirámide de la piramide irregular: " + volumen);
+document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

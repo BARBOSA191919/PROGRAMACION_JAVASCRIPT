@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora de Interés Simple</title>
+</head>
+<body>
+	<!-- Script para calcular el interés simple -->
+	<script type="text/javascript">
+		// Definimos una función para calcular el interés simple
+		function calcularInteresSimple(capital, interes, tiempo) {
+			// Calculamos el interés simple
+			var interesSimple = capital * (interes / 100) * tiempo;
+			// Imprimimos el resultado en el documento HTML
+			document.write("El interés simple es: " + interesSimple);
+		}
+    	// Pedimos al usuario los datos necesarios
+	var capital = parseInt(prompt("Ingrese el capital:"));
+	var interes = parseInt(prompt("Ingrese la tasa de interés (%):"));
+	var tiempo = parseInt(prompt("Ingrese el tiempo (en años):"));
+
+	// Llamamos a la función para calcular el interés simple
+	calcularInteresSimple(capital, interes, tiempo);
+	document.write("<h4>Autores: Santiago Barbosa y Diego Martinez</h4>");
+</script>
+
+</body>
+</html>

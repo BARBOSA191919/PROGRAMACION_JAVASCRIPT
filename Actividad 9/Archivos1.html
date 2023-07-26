@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MANEJO DE ARCHIVO DE texto </title>
+<meta charset="UTF-8">
+<script>
+    // agrega un evento para cuando cargue la página
+windows.addEventListenner ('load',inicio,flase);
+// funcion inicio cuando se haya cargado el archivo
+function incio() {
+    document.getElementById('archivo').addEventListener('change',cargar,false);
+}
+// funcion que se ejecuta cuando se selecciona un archivo
+function cargar (ev){
+    document.getElementById('archivo').innerHTML='Nombre del archivo:' +ev.target.file[0].name+'<br>'+
+                                                'Tamaño del archivo:'+ev.target.file[0].size+'<br>'+ 
+                                                'Tipo MIME:'+ev.target.file[0].type; 
+
+var arch =FileReader();
+arch.addEventListener('load',leer,false);
+arch.readAsText(ev.target.files[0]);
+}
+// se termina cuando se ha terminado de leer archivo 
+function leer (ev){
+document.getElementById('editor').value-ev.target.result;
+
+}
+</script>
+</head>
+<body>
+    <input type = "file" id="archivo" ><br>
+    <textarea rows="10" cols="80" id="editor"></textarea>
+    <br>
+    <p id="datos"></p>
+</htmkl>
+</body>
+
+
+
+
+
